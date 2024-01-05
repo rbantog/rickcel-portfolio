@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ReactElement } from "react";
+import "./App.css";
 
-function App() {
+function App(): ReactElement {
+  function changeTheChannel() {}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="continer">
+      <div
+        className="tv"
+        onClick={() => {
+          changeTheChannel();
+        }}
+      >
+        <div className="tv-contents-1" id="TvContents">
+          <div className="screen"></div>
+          <div className="text">rickcel</div>
+        </div>
+        <img src="https://i.imgur.com/8AEPcuZ.png" className="tv-top" />
+      </div>
     </div>
   );
 }
