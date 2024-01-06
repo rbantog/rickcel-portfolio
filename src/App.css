@@ -21,6 +21,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
+  pointer-events: none;
 }
 .text {
   color: #33ff33;
@@ -124,6 +125,7 @@ body {
   animation: jitter 5s ease-in-out infinite;
   animation-delay: 2s;
   transform-origin: center center;
+  pointer-events: none;
 }
 
 .screen:before {
@@ -247,4 +249,9 @@ body {
 a {
   text-decoration: none;
   color: #33ff33;
+}
+
+.youtube {
+  position: relative;
+  top: 23px;
 }
