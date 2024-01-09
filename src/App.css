@@ -12,7 +12,7 @@ body {
   position: relative;
   width: 400px;
   height: 410px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 .tv-top {
   z-index: 2;
@@ -33,6 +33,7 @@ body {
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
   font-weight: bold;
+  pointer-events: none;
 }
 .text a {
   text-decoration: none;
@@ -253,5 +254,14 @@ a {
 
 .youtube {
   position: relative;
-  top: 23px;
+  top: 25px;
+  left: 44px;
+}
+
+.filter-toggle {
+  position: absolute;
+  z-index: 3;
+  bottom: 31px;
+  left: 125px;
+  color: white;
 }

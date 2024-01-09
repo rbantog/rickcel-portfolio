@@ -1,40 +1,52 @@
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
+
+import classNames from "classnames";
+import TuneIcon from "@mui/icons-material/Tune";
 
 import Bookshelf from "./components/bookshelf";
 
 import "./App.css";
+import YouTube from "./components/youtube";
 
 function App(): ReactElement {
-  function changeTheChannel() {}
+  const [hasFilters, setHasFilters] = useState(true);
+  const [videoId, setVideoId] = useState("");
+  function toggleFilters() {
+    setHasFilters(!hasFilters);
+  }
 
   return (
     <div className="container">
-      <div
-        className="tv"
-        // onClick={() => {
-        //   changeTheChannel();
-        // }}
-      >
+      <div className="tv">
         <div className="tv-contents-1" id="TvContents">
-          <iframe
-            width="310"
-            height="250"
-            src="https://www.youtube.com/embed/0UhRzXaWyEY?si=g7pYznx6cmlk7QCD&autoplay=1"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            className="youtube"
-          ></iframe>
-          <div className="screen"></div>
-          {/* <div className="text">rickcel</div> */}
+          {videoId === "" ? "" : <YouTube id={videoId} />}
+          <div className={classNames("screen", { hidden: !hasFilters })}></div>
+          <div className={classNames("text", { hidden: !hasFilters })}>
+            rickcel
+          </div>
         </div>
         <img
           src="https://i.imgur.com/8AEPcuZ.png"
           alt="tv"
           className="tv-top"
         />
+        <label className="relative inline-flex items-center cursor-pointer filter-toggle">
+          <input
+            checked={hasFilters}
+            type="checkbox"
+            value=""
+            className="sr-only peer"
+            onClick={() => {
+              toggleFilters();
+            }}
+          />
+          <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+          <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <TuneIcon />
+          </span>
+        </label>
       </div>
-      <Bookshelf />
+      <Bookshelf videoId={videoId} setVideoId={setVideoId} />
     </div>
   );
 }
