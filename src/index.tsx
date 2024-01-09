@@ -8,6 +8,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <div className="flex items-center justify-center">
+      <App />
+    </div>
   </React.StrictMode>
 );
