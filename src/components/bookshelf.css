@@ -63,6 +63,9 @@
   background: black;
   position: relative;
   cursor: pointer;
+  left: 0;
+  top: 0;
+  transition: all 0.5s linear;
 }
 
 .vhs:hover {
@@ -96,4 +99,13 @@
   position: absolute;
   right: 54px;
   top: 16px;
+}
+
+.vhs.playing {
+  transform: rotate(-90deg);
+}
+
+.vhs-0.playing {
+  left: -175px;
+  top: -172px;
 }

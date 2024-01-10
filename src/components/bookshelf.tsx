@@ -12,15 +12,21 @@ interface BookshelfProps {
   setVideoId: (id: string) => void;
 }
 
-function Bookshelf({ setVideoId }: BookshelfProps): ReactElement {
+function Bookshelf({ setVideoId, videoId }: BookshelfProps): ReactElement {
   const [loadedTape, setLoadedTape] = useState(null);
 
   function eject() {
+    if (videoId === "") {
+      return;
+    }
     new Audio(VHS_EJECT).play();
     setVideoId("");
   }
 
   function playTape(id: string): void {
+    if (videoId !== "") {
+      return;
+    }
     new Audio(VHS_INSERT).play();
     setVideoId(id);
   }
@@ -40,9 +46,11 @@ function Bookshelf({ setVideoId }: BookshelfProps): ReactElement {
         </div>
       </div>
       <div className="shelf vhs-shelf">
-        {TAPES.map((tape) => (
+        {TAPES.map((tape, i) => (
           <div
-            className="vhs"
+            className={classNames("vhs", `vhs-${i}`, {
+              playing: videoId === tape.videoId,
+            })}
             onClick={() => {
               playTape(tape.videoId);
             }}
