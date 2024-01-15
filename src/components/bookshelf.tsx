@@ -45,10 +45,15 @@ function Bookshelf({ setVideoId, videoId }: BookshelfProps): ReactElement {
           />
         </div>
       </div>
-      <div className="shelf vhs-shelf">
+      <div
+        className={classNames(
+          "shelf vhs-shelf",
+          videoId === "" ? "" : "tape-removed"
+        )}
+      >
         {TAPES.map((tape, i) => (
           <div
-            className={classNames("vhs", `vhs-${i}`, {
+            className={classNames("vhs", `vhs-${TAPES.length - i - 1}`, {
               playing: videoId === tape.videoId,
             })}
             onClick={() => {

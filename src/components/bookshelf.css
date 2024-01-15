@@ -72,6 +72,14 @@
   outline: #33ff33 solid 1px;
 }
 
+.vhs-shelf.tape-removed .vhs {
+  cursor: auto;
+}
+
+.vhs-shelf.tape-removed .vhs:hover {
+  outline: 0;
+}
+
 .vhs-label {
   background: white;
   position: absolute;
@@ -103,9 +111,41 @@
 
 .vhs.playing {
   transform: rotate(-90deg);
+  top: -172px;
 }
 
 .vhs-0.playing {
   left: -175px;
-  top: -172px;
+}
+
+.vhs-1.playing {
+  left: -140px;
+}
+
+.vhs-2.playing {
+  left: -105px;
+}
+
+.vhs-3.playing {
+  left: -70px;
+}
+
+.vhs-4.playing {
+  left: -35px;
+}
+
+.vhs-5.playing {
+  left: 0px;
+}
+
+.vhs-6.playing {
+  left: 35px;
+}
+
+.vhs-7.playing {
+  left: 70px;
+}
+
+.vhs-8.playing {
+  left: 105px;
 }
