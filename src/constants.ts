@@ -30,7 +30,7 @@ export const TAPES: Tape[] = [{
 }, {
     name: 'the vibe',
     description: 'zoom app',
-    videoId: 'u4aR6L1JAts'
+    videoId: 'z0JXn7ZAeuM'
 }];
 
 export const VHS_INSERT = "sounds/vhs-insert.mp3";
